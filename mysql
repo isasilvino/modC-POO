@@ -1,0 +1,123 @@
+create table alunos(
+id int not null auto_increment,
+primary key(id),
+nome varchar(255),
+nascimento date,
+turma int(10),
+email varchar(30)
+)default charset = utf8;
+
+insert into alunos
+(id, nome, nascimento, turma, email)
+values
+(DEFAULT, 'João Silva', '2005-03-15', '8', 'joao.silva@gmail.com');
+
+create table professores(
+id int not null auto_increment,
+primary key(id),
+nome varchar(255),
+disciplina varchar(255),
+salario decimal(4,3)
+)default charset = utf8;
+
+insert into professores
+(id, nome, disciplina, salario)
+values
+(DEFAULT, 'Marina Peixe', 'História', '1.200'),
+(DEFAULT, 'Ricardo Silva', 'Artes', '1.150');
+
+create database biblioteca;
+
+create table livros(
+id int not null auto_increment,
+primary key(id),
+titulo varchar(255),
+autor varchar(255),
+ano int,
+disponivel boolean
+)default charset = utf8;
+
+
+insert into livros
+(id, titulo, autor, ano, disponivel)
+values
+(DEFAULT, '1984', 'George Orwell', '1949', '1'),
+(DEFAULT, 'IT', 'Stephen King', '1986', '0'),
+(DEFAULT, 'É assim que acaba', 'Collen Hoover', '2018', '1');
+
+
+
+create database empresa;
+
+create table funcionarios(
+id int not null auto_increment,
+primary key(id),
+nome varchar(255),
+cargo varchar(255),
+salario decimal(4,3),
+admissao int
+)default charset = utf8;
+
+insert into funcionarios
+(id, nome, cargo, salario, admissao)
+values
+(DEFAULT, 'Jose Carlo', 'Contador', '3.300', '2018');
+
+create database cinema;
+
+create table filmes(
+id int not null auto_increment,
+primary key(id),
+titulo varchar(255),
+diretor varchar(255),
+genero varchar(255),
+tempo varchar(20),
+etaria tinyint
+)default charset = utf8;
+
+insert into filmes
+(id, titulo, diretor, genero, tempo, etaria)
+values
+(DEFAULT, 'Meu malvado favorito 4', 'Chris Renaud', 'Animação', '95 minutos', '10'),
+(DEFAULT, 'Um lugar silencioso', 'Michael Sarnoski', 'Terros pós-apocalíptico', '100 minutos', '14' );
+
+select * from filmes;
+
+create database musica;
+
+create table albuns(
+id int not null auto_increment,
+primary key(id),
+nome varchar(255),
+artista varchar(255),
+ano int,
+genero varchar(40)
+)default charset = utf8;
+
+insert into albuns
+(id, nome, artista, ano, genero)
+values
+(DEFAULT, 'Demons', 'Doja Cat', '2023', 'Rap'),
+(DEFAULT, 'Paint the town red', 'Doja Cat', '2023', 'Rap');
+
+
+create database animais;
+
+create table domesticos(
+id int not null auto_increment,
+primary key(id),
+nome varchar(255), 
+raca varchar(255),
+nascimento int,
+fofura int
+)default charset = utf8;
+
+insert into domesticos
+(id, nome, raca, nascimento, fofura)
+values
+(DEFAULT, 'Pedro', 'SRD', '2019', '100'),
+(DEFAULT, 'Batata', 'SRD', '2017', '100'),
+(DEFAULT, 'Gud', 'Boiadeiro Australiano', '2018', '10'),
+(DEFAULT, 'Guy', 'Salsichinha', '2023', '10');
+
+select * from domesticos;
