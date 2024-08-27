@@ -1,0 +1,195 @@
+create database biblioteca;
+
+create table livros(
+id int not null auto_increment,
+primary key(id),
+titulo varchar(255),
+autor varchar(255),
+ano int,
+disponivel boolean
+)default charset = utf8;
+
+
+insert into livros
+(id, titulo, autor, ano, disponivel)
+values
+(DEFAULT, '1984', 'George Orwell', '1949', '1'),
+(DEFAULT, 'IT', 'Stephen King', '1986', '0'),
+(DEFAULT, 'É assim que acaba', 'Collen Hoover', '2018', '1');
+
+/* atulizando que livro está indisponível */
+update livros
+set disponivel = '0'
+where id = '3';
+
+/* retirando um livro */
+delete from livros where id ='2';
+
+
+create database empresa;
+
+create table funcionarios(
+id int not null auto_increment,
+primary key(id),
+nome varchar(255),
+cargo varchar(255),
+salario decimal(4,3),
+admissao int
+)default charset = utf8;
+
+insert into funcionarios
+(id, nome, cargo, salario, admissao)
+values
+(DEFAULT, 'Jose Carlo', 'Contador', '3.300', '2018');
+
+insert into funcionarios
+(id, nome, cargo, salario, admissao)
+values
+(DEFAULT, 'Mariana Santos', 'Gerente', '5.300', '2009'),
+(DEFAULT, 'Vitor Ferreira', 'Estagiário', '1.050', '2024'),
+(DEFAULT, 'Josi Klein', 'Recepcionista', '1.460', '2023'),
+(DEFAULT, 'Rodrigo Alencar', 'Zelador', '1.300', '2015');
+
+update funcionarios
+set cargo = 'Marketing'
+where id = '8';
+
+select * from funcionarios;
+
+/* removendo funcionario Vitor da empresa */
+delete from funcionarios where id ='8';
+
+
+
+
+create database cinema;
+
+create table filmes(
+id int not null auto_increment,
+primary key(id),
+titulo varchar(255),
+diretor varchar(255),
+genero varchar(255),
+tempo varchar(20),
+etaria tinyint
+)default charset = utf8;
+
+insert into filmes
+(id, titulo, diretor, genero, tempo, etaria)
+values
+(DEFAULT, 'Meu malvado favorito 4', 'Chris Renaud', 'Animação', '95 minutos', '10'),
+(DEFAULT, 'Um lugar silencioso', 'Michael Sarnoski', 'Terros pós-apocalíptico', '100 minutos', '14' );
+
+
+/* alterando faixa etaria */
+update filmes
+set etaria = '16'
+where id ='7';
+
+/* retirando filme de cartaz */
+delete from filmes where id= '7';
+
+select * from filmes;
+
+
+
+
+create database musica;
+
+create table albuns(
+id int not null auto_increment,
+primary key(id),
+nome varchar(255),
+artista varchar(255),
+ano int,
+genero varchar(40)
+)default charset = utf8;
+
+insert into albuns
+(id, nome, artista, ano, genero)
+values
+(DEFAULT, 'Demons', 'Doja Cat', '2023', 'Rap'),
+(DEFAULT, 'Paint the town red', 'Doja Cat', '2023', 'Rap');
+
+update albuns
+set nome = 'Paint The Town Red'
+where id = '2';
+
+select * from albuns;
+
+/* excluindo album */
+delete from albuns where id ='2';
+
+/* excluindo todos os dados dos albuns */
+truncate albuns;
+
+select * from albuns;
+
+
+
+
+
+create database escola;
+create table alunos(
+id int not null auto_increment,
+primary key(id),
+nome varchar(30),
+nascimento date,
+turma varchar(10),
+email varchar(255)
+)default char set = utf8mb4;
+
+
+insert into alunos
+(id, nome, nascimento, turma, email)
+values
+(default, 'Juliana Moraes', '2009-12-04', '7A', 'aluno@escola.com');
+
+select * from alunos;
+
+
+/* cadastrando alunos */
+insert into alunos
+(id, nome, nascimento, turma, email)
+values
+(default, 'Carlos Silva', '2019-10-22', '1A', 'aluno@escola.com'),
+(default, 'Melissa Feijó', '2009-07-26', '8B', 'aluno@escola.com'),
+(default, 'Fernanda Alencar', '2009-12-04', '9A', 'aluno@escola.com'),
+(default, 'Caio Passos', '2017-10-29', '3A', 'aluno@escola.com'),
+(default, 'Julia dos Santos', '2012-07-10', '5B', 'aluno@escola.com');
+
+
+select * from alunos;
+
+create table professor(
+id int not null auto_increment,
+primary key(id),
+nome varchar(30),
+disciplina varchar(30),
+salario decimal(4,3)
+)default char set= utf8mb4;
+
+
+/* cadastrando professores */
+insert into professor
+(id, nome, disciplina, salario)
+values
+(default, 'Joana Ferri', 'História', '1.200'),
+(default, 'Angélica Goularte', 'Matemática', '1.520'),
+(default, 'Fernando Silva', 'Geografia', '1.340'),
+(default, 'Silvana Moraes', 'Português', '2.200');
+
+select * from professor;
+
+/* aumentando o salário da professora Silvana*/
+update professor
+set salario = '2.400'
+where id = '4';
+
+/* retirando aluno que não estuda mais na escola*/
+delete from alunos where id ='1';
+
+/* retirando professor que não trabalha mais na escola*/
+delete from professor where id ='3';
+
+
