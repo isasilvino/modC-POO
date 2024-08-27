@@ -1,0 +1,20 @@
+create database animais;
+
+create table domesticos(
+id int not null auto_increment,
+primary key(id),
+nome varchar(255), 
+raca varchar(255),
+nascimento int,
+fofura int
+)default charset = utf8;
+
+insert into domesticos
+(id, nome, raca, nascimento, fofura)
+values
+(DEFAULT, 'Pedro', 'SRD', '2019', '100'),
+(DEFAULT, 'Batata', 'SRD', '2017', '100'),
+(DEFAULT, 'Gud', 'Boiadeiro Australiano', '2018', '10'),
+(DEFAULT, 'Guy', 'Salsichinha', '2023', '10');
+
+select * from domesticos;
